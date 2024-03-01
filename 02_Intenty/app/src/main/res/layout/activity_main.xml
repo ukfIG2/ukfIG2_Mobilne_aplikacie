@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Zadaj cislo:"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textSize="36sp" />
 
     <EditText
         android:id="@+id/Text02"
@@ -22,11 +23,13 @@
         android:ems="10"
         android:hint="Zadaj cislo:"
         android:inputType="number"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textSize="36sp" />
 
     <Button
         android:id="@+id/Button01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Spocitaj" />
+        android:text="Spocitaj"
+        android:textSize="34sp" />
 </LinearLayout>

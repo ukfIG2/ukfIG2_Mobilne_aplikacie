@@ -10,11 +10,13 @@
     <TextView
         android:id="@+id/Text03"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="36sp" />
 
     <Button
         android:id="@+id/Button02"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Exit" />
+        android:text="Exit"
+        android:textSize="34sp" />
 </LinearLayout>
