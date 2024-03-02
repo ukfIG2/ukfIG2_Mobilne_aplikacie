@@ -3,43 +3,76 @@ package main.example;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //Lets make tic tac toe game
-    //We will use 3x3 grid, in xml it build by buttons
-    //We will use 2 players
-    //We will use 2 symbols X and O
-    //We will use 1 textview to display the result
-    //We will use 1 textview to display the current player
+    //There will be two players X and O
+    //The 3x3 grid is already created in the activity_main.xml file
 
-    //We will use 1 array to store the current state of the game
-    //We will use 1 array to store the winning combinations
+    private Button[][] buttons = new Button[3][3];
 
-    //We will use 1 function to check the winning combinations
-    //We will use 1 function to check the draw
+    private boolean PX = true;
 
-    //We will use 1 function to reset the game
+    private int roundCount = 0;
+
+    private int playerXPoints;
+    private int playerOPoints;
+
+    private TextView textViewSkore;
+
+    private TextView textViewTurn;
 
 
-    //Lets start coding
-    //First we will create the layout, the layout is alredy set in xml file
-    //We will create the buttons, textviews and set the id's, done
-    //We will create the winning combinations arrays example of button id is B00 and B33 B stands for button first number for row and second number for column
-    String [] winningCombination = {"B00B01B02","B10B11B12","B20B21B22","B00B10B20","B01B11B21","B02B12B22","B00B11B22","B02B11B20"};
-    //We will create the current state of the game array
-    String [] gameState = {"","","","","","","","","",""};
-    //We will create the current player
-    String currentPlayer = "X";
-    //We will create the current player symbol
-    String currentPlayerSymbol = "X";
-    //We will create the textview to display the result
-    TextView resultTextView;
+
+
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        textViewSkore = findViewById(R.id.TextSkore);
+        textViewTurn = findViewById(R.id.TextCurrentPlayer);
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                String buttonID = "B" + i + j;
+                int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+                buttons[i][j] = findViewById(resID);
+                //System.out.println("BUTTOM " + buttons[i][j]);
+                //System.out.println("BUTTOM " + buttons[i][j].getId());
+                //System.out.println(buttonID);
+                buttons[i][j].setOnClickListener(this::onClick);
+
+        }
+    }
+
+
+    //https://gist.github.com/codinginflow/5b37262635152fd91af5df92490624ce
+}
+
+    private void onClick(View v){
+        System.out.println("CLICK" + v.getId());
+        if (!((Button) v).getText().toString().equals("")) {
+            return;
+        }
+        else if(PX){
+            ((Button) v).setText("X");
+            PX = !PX;
+        }
+        else{
+            ((Button) v).setText("O");
+            PX = !PX;
+        }
+
+        roundCount++;
+
+        System.out.println("ROUND COUNT " + roundCount);
     }
 }
