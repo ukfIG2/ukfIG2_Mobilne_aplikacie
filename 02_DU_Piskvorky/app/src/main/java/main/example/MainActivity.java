@@ -7,14 +7,11 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //Lets make tic tac toe game
-    //We will use 3x3 grid
+    //We will use 3x3 grid, in xml it build by buttons
     //We will use 2 players
     //We will use 2 symbols X and O
-    //We will use 9 buttons
-    //We will use 1 reset button
     //We will use 1 textview to display the result
     //We will use 1 textview to display the current player
-    //We will use 1 textview to display the current player symbol
 
     //We will use 1 array to store the current state of the game
     //We will use 1 array to store the winning combinations
