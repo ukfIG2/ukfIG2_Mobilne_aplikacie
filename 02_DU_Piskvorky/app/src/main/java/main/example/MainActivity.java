@@ -40,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textViewSkore = findViewById(R.id.TextSkore);//Q:What does this line do?
-        //A:It finds the TextView with the id TextSkore and assigns it to the variable textViewSkore.
-        //Q:So it only initielize the variable textViewSkore it does not set anything?
+        textViewSkore = findViewById(R.id.TextSkore);
 
         textViewTurn = findViewById(R.id.TextCurrentPlayer);
 
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         playerXPoints = 0;
 
         //Lets set it to show X = playerXPoints and O = playerOPoints
-        textViewSkore.setText("X: " + playerXPoints + " O: " + playerOPoints);
+        textViewSkore.setText("Skore je \nX: " + playerXPoints + " \t\t O: " + playerOPoints);
         textViewTurn.setText("Na rade je X");
 
         for (int i = 0; i < 3; i++) {
@@ -84,6 +82,20 @@ public class MainActivity extends AppCompatActivity {
             changePlayerText();
         }
         checkWinner();
+
+        if(klikCount == 8){
+            //automaticli pres the last button
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if(buttons[i][j].getText().toString().equals("")){
+                        buttons[i][j].performClick();
+                        return;
+                    }
+                }
+            }
+            resetGame();
+        }
+
 
         klikCount++;
 
@@ -129,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
         roundCount++;
         PX = true;
         klikCount = 0;
+        changePlayerText();
     }
 
 
