@@ -14,9 +14,18 @@ public class MainActivity extends AppCompatActivity {
 
     private Button[][] buttons = new Button[3][3];
 
+    //Lets make wiinButton array to store the winning combinations and set which ones there are
+    private int[][] winButton = {
+            {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, //rows
+            {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, //columns
+            {0, 4, 8}, {2, 4, 6} //diagonals
+    };
+
     private boolean PX = true;
 
-    private int roundCount = 0;
+    private int roundCount;
+
+    private int klikCount;
 
     private int playerXPoints;
     private int playerOPoints;
@@ -26,22 +35,28 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewTurn;
 
 
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textViewSkore = findViewById(R.id.TextSkore);
+        textViewSkore = findViewById(R.id.TextSkore);//Q:What does this line do?
+        //A:It finds the TextView with the id TextSkore and assigns it to the variable textViewSkore.
+        //Q:So it only initielize the variable textViewSkore it does not set anything?
+
         textViewTurn = findViewById(R.id.TextCurrentPlayer);
 
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
+        roundCount = 0;
+        klikCount = 0;
+        playerOPoints = 0;
+        playerXPoints = 0;
+
+        //Lets set it to show X = playerXPoints and O = playerOPoints
+        textViewSkore.setText("X: " + playerXPoints + " O: " + playerOPoints);
+        textViewTurn.setText("Na rade je X");
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 String buttonID = "B" + i + j;
                 int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
                 buttons[i][j] = findViewById(resID);
@@ -50,29 +65,71 @@ public class MainActivity extends AppCompatActivity {
                 //System.out.println(buttonID);
                 buttons[i][j].setOnClickListener(this::onClick);
 
+            }
         }
+        //https://gist.github.com/codinginflow/5b37262635152fd91af5df92490624ce
     }
 
-
-    //https://gist.github.com/codinginflow/5b37262635152fd91af5df92490624ce
-}
-
-    private void onClick(View v){
+    private void onClick(View v) {
         System.out.println("CLICK" + v.getId());
         if (!((Button) v).getText().toString().equals("")) {
             return;
-        }
-        else if(PX){
+        } else if (PX) {
             ((Button) v).setText("X");
             PX = !PX;
-        }
-        else{
+            changePlayerText();
+        } else {
             ((Button) v).setText("O");
             PX = !PX;
+            changePlayerText();
         }
+        checkWinner();
 
-        roundCount++;
+        klikCount++;
 
-        System.out.println("ROUND COUNT " + roundCount);
+        System.out.println("ROUND COUNT " + roundCount);    //DEBUG
     }
+
+    private void changePlayerText() {
+        if (PX) {
+            textViewTurn.setText("Na rade je X");
+        } else {
+            textViewTurn.setText("Na rade je O");
+        }
+    }
+
+    //Lets make a function to get text from buttom
+    private String getTextFromButton(int i, int j) {
+        return buttons[i][j].getText().toString();
+    }
+
+    private void checkWinner() {
+        for (int i = 0; i < 8; i++) {
+            String a = getTextFromButton(winButton[i][0] / 3, winButton[i][0] % 3);
+            String b = getTextFromButton(winButton[i][1] / 3, winButton[i][1] % 3);
+            String c = getTextFromButton(winButton[i][2] / 3, winButton[i][2] % 3);
+            if (!a.equals("") && a.equals(b) && a.equals(c)) {
+                if (a.equals("X")) {
+                    playerXPoints++;
+                } else {
+                    playerOPoints++;
+                }
+                textViewSkore.setText("X: " + playerXPoints + " O: " + playerOPoints);
+                 resetGame();
+            }
+        }
+    }
+
+    private void resetGame() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                buttons[i][j].setText("");
+            }
+        }
+        roundCount++;
+        PX = true;
+        klikCount = 0;
+    }
+
+
 }
