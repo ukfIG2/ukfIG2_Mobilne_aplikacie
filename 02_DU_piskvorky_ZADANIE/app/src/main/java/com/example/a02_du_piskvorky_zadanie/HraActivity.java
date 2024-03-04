@@ -12,7 +12,6 @@ public class HraActivity extends AppCompatActivity {
 
     private Button[][] buttons = new Button[3][3];
 
-    //Lets make wiinButton array to store the winning combinations and set which ones there are
     private int[][] winButton = {
             {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, //rows
             {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, //columns
@@ -28,10 +27,13 @@ public class HraActivity extends AppCompatActivity {
     private int playerXPoints;
     private int playerOPoints;
 
+    private int remiza;
+
     private TextView textViewSkore;
 
     private TextView textViewTurn;
 
+    private TextView textViewVysledok;
     String menoX;
     String menoO;
 
@@ -44,17 +46,18 @@ public class HraActivity extends AppCompatActivity {
         menoX = intent.getStringExtra("x");
         menoO = intent.getStringExtra("o");
 
-
         textViewSkore = findViewById(R.id.TextSkore);
 
         textViewTurn = findViewById(R.id.TextCurrentPlayer);
+
+        textViewVysledok = findViewById(R.id.tv10);
 
         roundCount = 0;
         klikCount = 0;
         playerOPoints = 0;
         playerXPoints = 0;
+        remiza = 0;
 
-        //Lets set it to show X = playerXPoints and O = playerOPoints
         textViewSkore.setText("Skore je \nX: " + playerXPoints + " \t\t O: " + playerOPoints);
         textViewSkore.setText("Skore je \n" + menoX + ": " + playerXPoints + " \t\t " + menoO + "  : " + playerOPoints);
         textViewTurn.setText("Na rade je X");
@@ -71,7 +74,6 @@ public class HraActivity extends AppCompatActivity {
 
             }
         }
-        //https://gist.github.com/codinginflow/5b37262635152fd91af5df92490624ce
     }
 
     private void onClick(View v) {
@@ -99,17 +101,14 @@ public class HraActivity extends AppCompatActivity {
                     }
                 }
             }
+            remiza++;
             Intent intent2 = new Intent(this, VysledokKolaActivity.class);
             intent2.putExtra("winner", "Remiza");
             startActivity(intent2);
             resetGame();
-
         }
-
-
         klikCount++;
-
-        System.out.println("ROUND COUNT " + roundCount);    //DEBUG
+        //System.out.println("ROUND COUNT " + roundCount);    //DEBUG
     }
 
     private void changePlayerText() {
@@ -120,7 +119,6 @@ public class HraActivity extends AppCompatActivity {
         }
     }
 
-    //Lets make a function to get text from buttom
     private String getTextFromButton(int i, int j) {
         return buttons[i][j].getText().toString();
     }
@@ -158,5 +156,8 @@ public class HraActivity extends AppCompatActivity {
         PX = true;
         klikCount = 0;
         changePlayerText();
+        //Na debugovacie účely
+        textViewVysledok.setText("Kôl bolo " + roundCount + ", remiz bolo " + remiza);
+
     }
 }

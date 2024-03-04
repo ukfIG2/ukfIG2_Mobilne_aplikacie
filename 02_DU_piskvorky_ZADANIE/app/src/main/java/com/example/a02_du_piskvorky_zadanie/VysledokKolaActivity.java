@@ -20,13 +20,7 @@ public class VysledokKolaActivity extends AppCompatActivity {
     }
 
     private void reset() {
-        //I want to return to previus intent
         finish();
     }
 
 }
-
-//Q:How to check data type of variable in Java give me example. String a = "Hello";
-//A:You can use the getClass() method to get the type of a variable. For example:
-// String a = "Hello";
-// System.out.println(a.getClass());
