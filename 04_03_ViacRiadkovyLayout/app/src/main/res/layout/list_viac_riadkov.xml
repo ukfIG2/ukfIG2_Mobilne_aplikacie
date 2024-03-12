@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView android:id="@+id/meno_item"
+        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:textSize="22sp"
+        android:width="100dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="fill_parent">
+
+        <TextView android:id="@+id/popis1"
+            android:text="pro 1:"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:width="100dip" />
+
+        <TextView android:id="@+id/pro1_item"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:width="100dip" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="fill_parent">
+
+        <TextView android:id="@+id/popis2"
+            android:text="pro 2:"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:width="100dip" />
+
+        <TextView android:id="@+id/pro2_item"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:width="100dip" />
+    </LinearLayout>
+
+</LinearLayout>
