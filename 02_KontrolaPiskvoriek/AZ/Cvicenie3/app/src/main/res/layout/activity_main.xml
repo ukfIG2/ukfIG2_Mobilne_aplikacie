@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/textHraca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Na rade je hráč 1."
+        android:textSize="24sp"
+        android:layout_marginBottom="20dp" />
+
+    <GridLayout
+        android:id="@+id/mriezka"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:alignmentMode="alignMargins"
+        android:columnCount="3"
+        android:padding="16dp"
+        android:rowCount="3">
+        <!-- Tlačidlá sú pridané dynamicky v kóde -->
+    </GridLayout>
+
+    <Button
+        android:id="@+id/tlacidloRestart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reštartovať hru"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>
