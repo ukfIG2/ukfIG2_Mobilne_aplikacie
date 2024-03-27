@@ -33,12 +33,11 @@ public class MainActivity extends AppCompatActivity {
         PridajListener();
 
         Toolbar tb = findViewById(R.id.toolbar);
-        setSupportActionBar(tb);
+            setSupportActionBar(tb);
     }
 
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         // vytvorenie adaptera
         myAdapter = new ArrayAdapter<String>(
                 this,
-                android.R.layout.simple_list_item_1,
+                            android.R.layout.simple_list_item_1 ,
                 ulohyArray);
 
         ListView lv = findViewById(R.id.listView);
