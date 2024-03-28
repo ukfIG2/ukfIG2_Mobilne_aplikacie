@@ -39,7 +39,16 @@ public class Znamka extends AppCompatActivity {
         Predmet = findViewById(R.id.znamkaPredmet);
         Predmet.setText(intent.getStringExtra("nazov"));
         staraZnamka = findViewById(R.id.znamkaStara);
-        staraZnamka.setText(intent.getStringExtra("hodnota"));
+        //staraZnamka.setText(intent.getStringExtra("hodnota"));
+        MainActivity.zoznam.forEach(e -> {
+            if(e.get("Meno").equals(intent.getStringExtra("meno")) && e.get("Priezvisko").equals(intent.getStringExtra("priezvisko"))){
+                e.forEach((k, v) -> {
+                    if(k.equals(intent.getStringExtra("nazov"))){
+                        staraZnamka.setText(v);
+                    }
+                });
+            }
+        });
         novaZnamka = findViewById(R.id.znamkaNova);
 
         update = findViewById(R.id.znamkaUpdate);

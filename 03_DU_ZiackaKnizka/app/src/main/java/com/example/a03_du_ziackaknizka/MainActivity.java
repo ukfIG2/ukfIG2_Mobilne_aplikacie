@@ -115,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Ziak2.class);
                 intent.putExtra("meno", zoznam.get(position).get("Meno"));
                 intent.putExtra("priezvisko", zoznam.get(position).get("Priezvisko"));
-                intent.putExtra("matematika", zoznam.get(position).get("Matematika"));
-                intent.putExtra("slovensky_jazyk", zoznam.get(position).get("Slovenský jazyk"));
-                intent.putExtra("fyzika", zoznam.get(position).get("Fyzika"));
-                intent.putExtra("informatika", zoznam.get(position).get("Informatika"));
+                //intent.putExtra("matematika", zoznam.get(position).get("Matematika"));
+                //intent.putExtra("slovensky_jazyk", zoznam.get(position).get("Slovenský jazyk"));
+                //intent.putExtra("fyzika", zoznam.get(position).get("Fyzika"));
+                //intent.putExtra("informatika", zoznam.get(position).get("Informatika"));
 
                 /*System.out.println("Meno: " + zoznam.get(position).get("Meno"));
                 System.out.println("Priezvisko: " + zoznam.get(position).get("Priezvisko"));
@@ -176,11 +176,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*@Override
+    @Override
     protected void onResume() {
         super.onResume();
         PripojAdapter();
     }
-*/
+
 
 }
