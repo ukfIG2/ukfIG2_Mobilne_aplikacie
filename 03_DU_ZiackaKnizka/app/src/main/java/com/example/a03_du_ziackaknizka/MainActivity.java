@@ -25,9 +25,8 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
 
-    ArrayList<HashMap<String, String>> zoznam = new ArrayList<HashMap<String, String>>();
+    public static ArrayList<HashMap<String, String>> zoznam = new ArrayList<HashMap<String, String>>();
 
-    ArrayAdapter<String> myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void PripojAdapter(){
+    private void PripojAdapter() {
         ArrayList<String> mena = new ArrayList<String>();
 
         for (HashMap<String, String> item : zoznam) {
@@ -109,11 +108,11 @@ public class MainActivity extends AppCompatActivity {
         lv.setAdapter(myAdapter);
     }
 
-    private void PridajListener(){
+    private void PridajListener() {
         AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, Ziak.class);
+                Intent intent = new Intent(MainActivity.this, Ziak2.class);
                 intent.putExtra("meno", zoznam.get(position).get("Meno"));
                 intent.putExtra("priezvisko", zoznam.get(position).get("Priezvisko"));
                 intent.putExtra("matematika", zoznam.get(position).get("Matematika"));
@@ -121,18 +120,18 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("fyzika", zoznam.get(position).get("Fyzika"));
                 intent.putExtra("informatika", zoznam.get(position).get("Informatika"));
 
-                System.out.println("Meno: " + zoznam.get(position).get("Meno"));
+                /*System.out.println("Meno: " + zoznam.get(position).get("Meno"));
                 System.out.println("Priezvisko: " + zoznam.get(position).get("Priezvisko"));
                 System.out.println("Matematika: " + zoznam.get(position).get("Matematika"));
                 System.out.println("Slovenský jazyk: " + zoznam.get(position).get("Slovenský jazyk"));
                 System.out.println("Fyzika: " + zoznam.get(position).get("Fyzika"));
                 System.out.println("Informatika: " + zoznam.get(position).get("Informatika"));
-
+*/
 
                 startActivity(intent);
             }
         };
-        ListView myList =  findViewById(R.id.main_listView_01);
+        ListView myList = findViewById(R.id.main_listView_01);
         myList.setOnItemClickListener(listener);
     }
 
@@ -143,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.Menu_pS) {
-            startActivityForResult(new Intent(this, PridajStudentaActivity.class),1);
+            startActivityForResult(new Intent(this, PridajStudentaActivity.class), 1);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -176,5 +175,12 @@ public class MainActivity extends AppCompatActivity {
                 }
         }
     }
+
+    /*@Override
+    protected void onResume() {
+        super.onResume();
+        PripojAdapter();
+    }
+*/
 
 }

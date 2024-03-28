@@ -13,6 +13,12 @@
         android:theme="@style/Theme._03_DU_ZiackaKnizka"
         tools:targetApi="31">
         <activity
+            android:name=".Znamka"
+            android:exported="false" />
+        <activity
+            android:name=".Ziak2"
+            android:exported="false" />
+        <activity
             android:name=".PridajStudentaActivity"
             android:exported="false" />
         <activity
