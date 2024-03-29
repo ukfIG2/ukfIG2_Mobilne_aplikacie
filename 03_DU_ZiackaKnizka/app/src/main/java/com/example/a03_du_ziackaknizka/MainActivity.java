@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         HashMap<String, String> riadok = new HashMap<String, String>();
         riadok.put("Meno", "Jožko");
         riadok.put("Priezvisko", "Mrkvicka");
-        riadok.put("Matematika", "1");
+        riadok.put("Matematika", "1,5,8");
         riadok.put("Slovenský jazyk", "2");
         riadok.put("Fyzika", "3");
         riadok.put("Informatika", "4");

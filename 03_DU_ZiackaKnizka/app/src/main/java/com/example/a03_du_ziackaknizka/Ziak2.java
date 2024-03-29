@@ -122,7 +122,7 @@ public class Ziak2 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, android.view.View view, int position, long id) {
                 //System.out.println("Klikol si na: " + position);
-                Intent intent = new Intent(Ziak2.this, Znamka.class);
+                Intent intent = new Intent(Ziak2.this, ZoznamZnamok.class);
                 String string = zoznam.get(position).toString();
                 //take nazov and cut everything sice ":"
                 String nazov = string.substring(0, string.indexOf(":"));
@@ -131,6 +131,7 @@ public class Ziak2 extends AppCompatActivity {
                // intent.putExtra("hodnota", hodnota);
                 intent.putExtra("meno", getIntent().getStringExtra("meno"));
                 intent.putExtra("priezvisko", getIntent().getStringExtra("priezvisko"));
+
 
                 //System.out.println("Nazov: " + nazov);
                 //System.out.println("Hodnota: " + hodnota)
