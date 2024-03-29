@@ -22,23 +22,17 @@
             android:name=".ZoznamZnamok"
             android:exported="false" />
         <activity
-            android:name=".Znamka"
-            android:exported="false" />
-        <activity
             android:name=".Ziak2"
             android:exported="false" />
         <activity
             android:name=".PridajStudentaActivity"
             android:exported="false" />
-        <activity
-            android:name=".Ziak"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
