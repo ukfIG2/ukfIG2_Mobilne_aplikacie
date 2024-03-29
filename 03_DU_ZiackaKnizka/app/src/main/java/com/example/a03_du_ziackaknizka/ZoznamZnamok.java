@@ -60,13 +60,11 @@ public class ZoznamZnamok extends AppCompatActivity {
         String meno = intent.getStringExtra("meno");
         String priezvisko = intent.getStringExtra("priezvisko");
         String nazov = intent.getStringExtra("nazov");
-        System.out.println(meno + " " + priezvisko);
+        //System.out.println(meno + " " + priezvisko);
         MainActivity.zoznam.forEach((k) -> {
             if (Objects.equals(k.get("Meno"), meno) && Objects.equals(k.get("Priezvisko"), priezvisko)) {
                 k.forEach((key, value) -> {
                     if (key.equals(nazov)) {
-                        //listZnamok.add(value);
-                        //chceck string for , and split and add to list
                         if (value.contains(",")) {
                             String[] znamky = value.split(",");
                             listZnamok.addAll(Arrays.asList(znamky));
@@ -84,7 +82,7 @@ public class ZoznamZnamok extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listZnamok);
 
         zoznamZnamok.setAdapter(adapter);
-        System.out.println("Adapter");
+        //System.out.println("Adapter");
 
     }
 
@@ -92,36 +90,23 @@ public class ZoznamZnamok extends AppCompatActivity {
 
     private void pridajListener() {
         AdapterView.OnItemClickListener listener = (parent, view, position, id) -> {
-            System.out.println("Klikol si na " + listZnamok.get(position));
+            //System.out.println("Klikol si na " + listZnamok.get(position));
             Intent intent = new Intent(this, Znamka2.class);
             intent.putExtra("meno", getIntent().getStringExtra("meno"));
             intent.putExtra("priezvisko", getIntent().getStringExtra("priezvisko"));
             intent.putExtra("nazov", getIntent().getStringExtra("nazov"));
             intent.putExtra("hodnota", listZnamok.get(position));
             intent.putExtra("predmet", getIntent().getStringExtra("nazov"));
-            //put hodnota znamky at position to intent
             startActivity(intent);
         };
         zoznamZnamok.setOnItemClickListener(listener);
     }
-        /*
-        zoznamZnamok.setOnItemClickListener((parent, view, position, id) -> {
-            Intent intent = new Intent(this, Znamka.class);
-            intent.putExtra("meno", getIntent().getStringExtra("meno"));
-            intent.putExtra("priezvisko", getIntent().getStringExtra("priezvisko"));
-            intent.putExtra("nazov", getIntent().getStringExtra("nazov"));
-            intent.putExtra("hodnota", listZnamok.get(position));
-            startActivity(intent);
-        });
-        zoznamZnamok.setOnClickListener(listener);
-    }*/
-
 
     protected void onRestart() {
         super.onRestart();
         nacitajData();
         pridajAdapter();
-        System.out.println("restart");
+        //System.out.println("restart");
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

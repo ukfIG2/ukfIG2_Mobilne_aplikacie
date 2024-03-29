@@ -54,8 +54,6 @@ public class Znamka2 extends AppCompatActivity {
 
         vymazat = findViewById(R.id.Znamka2_delete);
         vymazat.setOnClickListener(e -> delete());
-
-
     }
 
     private void nacitajData() {
@@ -67,25 +65,24 @@ public class Znamka2 extends AppCompatActivity {
 
         Meno.setText(meno + " " + priezvisko);
         Predmet.setText(predmet);
-        System.out.println(predmet);
+        //System.out.println(predmet);
         staraZnamka.setText(znamka);
     }
 
     private void update() {
         String staraZnamka = intent.getStringExtra("hodnota");
-        String NovaZnamka = novaZnamka.getText().toString();
+        String NovaZnamka = PridajStudentaActivity.skontroluZnamku(novaZnamka.getText().toString());
         MainActivity.zoznam.forEach(e -> {
-            System.out.println(MainActivity.zoznam);
+            //System.out.println(MainActivity.zoznam);
             if(e.get("Meno").equals(intent.getStringExtra("meno")) && e.get("Priezvisko").equals(intent.getStringExtra("priezvisko"))){
                 e.forEach((k, v) -> {
                     if(k.equals(intent.getStringExtra("nazov"))){
-                        System.out.println("k: " + k);
-                        System.out.println("v: " + v);
-                        //Split string and replace staru znamku with novu
+                        //System.out.println("k: " + k);
+                        //System.out.println("v: " + v);
                         String hodnota = v.toString();
                         String noveHodnoty = hodnota.replace(staraZnamka, NovaZnamka);
                         e.put(k, noveHodnoty);
-                        System.out.println("nove hodnoty: " + noveHodnoty);
+                        //System.out.println("nove hodnoty: " + noveHodnoty);
                     }
                 });
             }
@@ -93,21 +90,6 @@ public class Znamka2 extends AppCompatActivity {
         finish();
     }
 
-    /*private void delete(){
-        String staraZnamka = intent.getStringExtra("hodnota");
-        MainActivity.zoznam.forEach(e -> {
-            if(e.get("Meno").equals(intent.getStringExtra("meno")) && e.get("Priezvisko").equals(intent.getStringExtra("priezvisko"))){
-                e.forEach((k, v) -> {
-                    if(k.equals(intent.getStringExtra("nazov"))){
-                        String hodnota = v.toString();
-                        String noveHodnoty = hodnota.replace(staraZnamka, "");
-                        e.put(k, noveHodnoty);
-                    }
-                });
-            }
-        });
-        finish();
-    }*/
     private void delete(){
         String staraZnamka = intent.getStringExtra("hodnota");
         MainActivity.zoznam.forEach(e -> {
@@ -123,7 +105,7 @@ public class Znamka2 extends AppCompatActivity {
                         noveHodnoty = noveHodnoty.replaceFirst(",$", "");
                         noveHodnoty = noveHodnoty.replaceFirst(",,$", "");
                         e.put(k, noveHodnoty);
-                        System.out.println("nove hodnoty: " + noveHodnoty);
+                        //System.out.println("nove hodnoty: " + noveHodnoty);
                     }
                 });
             }

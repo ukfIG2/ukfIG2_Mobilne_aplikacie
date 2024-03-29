@@ -41,55 +41,34 @@ public class PridajZnamkuActivity extends AppCompatActivity {
         pridaj = findViewById(R.id.NZ_priadj);
         spat = findViewById(R.id.NZ_naspak);
 
-        System.out.println(intent.getStringExtra("meno"));
-        System.out.println(intent.getStringExtra("nazov"));
-        System.out.println(intent.getStringExtra("priezvisko"));
+        //System.out.println(intent.getStringExtra("meno"));
+        //System.out.println(intent.getStringExtra("nazov"));
+        //System.out.println(intent.getStringExtra("priezvisko"));
 
         spat.setOnClickListener(e -> finish());
 
         pridaj.setOnClickListener(e -> Pridaj());
 
+        meno.setText(intent.getStringExtra("meno") + " " + intent.getStringExtra("priezvisko"));
+        predmet.setText(intent.getStringExtra("nazov"));
+
     }
 
-  /*  private void Pridaj() {
-        System.out.println("Pridaj");
-        String meno = intent.getStringExtra("meno");
-        String priezvisko = intent.getStringExtra("priezvisko");
-        String predmet = intent.getStringExtra("nazov");
-        String znamka = this.znamka.getText().toString();
-        System.out.println(znamka);
-
-        MainActivity.zoznam.forEach(e -> {
-            System.out.println(MainActivity.zoznam);
-            if(Objects.equals(e.get("Meno"), intent.getStringExtra("meno")) && Objects.equals(e.get("Priezvisko"), intent.getStringExtra("priezvisko"))){
-                e.forEach((k, v) -> {
-                    if(k.equals(intent.getStringExtra("nazov"))){
-                        System.out.println("k: " + k);
-                        System.out.println("v: " + v);
-                        String existingGrades = e.get(k);
-                        String updatedGrades = existingGrades + "," + znamka;
-                        e.put(k, updatedGrades);
-                    }
-                });
-            }
-        });
-        finish();
-    }*/
   private void Pridaj() {
-      System.out.println("Pridaj");
+      //System.out.println("Pridaj");
       String meno = intent.getStringExtra("meno");
       String priezvisko = intent.getStringExtra("priezvisko");
       String predmet = intent.getStringExtra("nazov");
-      String znamka = this.znamka.getText().toString();
-      System.out.println(znamka);
+      String znamka = PridajStudentaActivity.skontroluZnamku(this.znamka.getText().toString());
+      //System.out.println(znamka);
 
       MainActivity.zoznam.forEach(e -> {
-          System.out.println(MainActivity.zoznam);
+          //System.out.println(MainActivity.zoznam);
           if(Objects.equals(e.get("Meno"), intent.getStringExtra("meno")) && Objects.equals(e.get("Priezvisko"), intent.getStringExtra("priezvisko"))){
               e.forEach((k, v) -> {
                   if(k.equals(intent.getStringExtra("nazov"))){
-                      System.out.println("k: " + k);
-                      System.out.println("v: " + v);
+                      //System.out.println("k: " + k);
+                      //System.out.println("v: " + v);
                       String existingGrades = e.get(k);
                       String updatedGrades = existingGrades + "," + znamka;
                       updatedGrades = updatedGrades.replaceFirst("^,|Ešte nič,", ""); // remove leading comma or "Ešte nič"

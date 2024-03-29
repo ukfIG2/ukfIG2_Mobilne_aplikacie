@@ -45,7 +45,6 @@ public class Ziak2 extends AppCompatActivity {
     button.setOnClickListener(e -> finish());
 
         intent = getIntent();
-        //toolbar = findViewById(R.id.too);
         toolbar = findViewById(R.id.toolbar_title);
         nacitajData();
         pridajAdapter();
@@ -59,54 +58,21 @@ public class Ziak2 extends AppCompatActivity {
 
         toolbar.setText(meno + " " + priezvisko);
 
-
-        //String Matematika = intent.getStringExtra("matematika");
-        //String SlovenskyJazyk = intent.getStringExtra("slovensky_jazyk");
-        //String Fyzika = intent.getStringExtra("fyzika");
-        //String Informatika = intent.getStringExtra("informatika");
-        //Nacitaj data z MainActivity.java.zoznam a vypis ich
         MainActivity.zoznam.forEach(e -> {
             if(e.get("Meno").equals(meno) && e.get("Priezvisko").equals(priezvisko)){
                 //System.out.println("Meno: " + e.get("Meno"));
                 //System.out.println("Priezvisko: " + e.get("Priezvisko"));
-                //System.out.println("Matematika: " + e.get("Matematika"));
-                //System.out.println("Slovenský jazyk: " + e.get("Slovenský jazyk"));
-                //System.out.println("Fyzika: " + e.get("Fyzika"));
-                //System.out.println("Informatika: " + e.get("Informatika"));
 
-                /*Matematika = e.get("Matematika");
-                System.out.println("Matematika: " + Matematika);
-                SlovenskyJazyk = e.get("Slovenský jazyk");
-                Fyzika = e.get("Fyzika");
-                Informatika = e.get("Informatika");*/
-                //put shor if if empty "Zatedy ništ"
                 Matematika = e.get("Matematika").isEmpty() ? "Zatiaľ nič" : e.get("Matematika");
                 SlovenskyJazyk = e.get("Slovenský jazyk").isEmpty() ? "Zatiaľ nič" : e.get("Slovenský jazyk");
                 Fyzika = e.get("Fyzika").isEmpty() ? "Zatiaľ nič" : e.get("Fyzika");
                 Informatika = e.get("Informatika").isEmpty() ? "Zatiaľ nič" : e.get("Informatika");
-
-
             }
         });
-
-       /* System.out.println("meno: " + meno);
-        System.out.println("priezvisko: " + priezvisko);
-        System.out.println("Matematika: " + Matematika);
-        System.out.println("Slovenský jazyk: " + SlovenskyJazyk);
-        System.out.println("Fyzika: " + Fyzika);
-        System.out.println("Informatika: " + Informatika);
-*/
     }
 
     private void pridajAdapter(){
         zoznam = new ArrayList<String>();
-        //put shor if if empty "Zatedy ništ"
-        /*zoznam.add("Matematika: " + (Matematika.isEmpty() ? "Zatiaľ nič" : Matematika));
-        zoznam.add("Slovenský jazyk: " + (SlovenskyJazyk.isEmpty() ? "Zatiaľ nič" : SlovenskyJazyk));
-        zoznam.add("Fyzika: " + (Fyzika.isEmpty() ? "Zatiaľ nič" : Fyzika));
-        zoznam.add("Informatika: " + (Informatika.isEmpty() ? "Zatiaľ nič" : Informatika));*/
-
-
         zoznam.add("Matematika: " + Matematika);
         zoznam.add("Slovenský jazyk: " + SlovenskyJazyk);
         zoznam.add("Fyzika: " + Fyzika);
@@ -123,19 +89,12 @@ public class Ziak2 extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, android.view.View view, int position, long id) {
                 //System.out.println("Klikol si na: " + position);
                 Intent intent = new Intent(Ziak2.this, ZoznamZnamok.class);
-                String string = zoznam.get(position).toString();
-                //take nazov and cut everything sice ":"
+                String string = zoznam.get(position);//redudant
                 String nazov = string.substring(0, string.indexOf(":"));
                 String hodnota = string.substring(string.indexOf(":") + 2);
                 intent.putExtra("nazov", nazov);
-               // intent.putExtra("hodnota", hodnota);
                 intent.putExtra("meno", getIntent().getStringExtra("meno"));
                 intent.putExtra("priezvisko", getIntent().getStringExtra("priezvisko"));
-
-
-                //System.out.println("Nazov: " + nazov);
-                //System.out.println("Hodnota: " + hodnota)
-                ;
                 startActivity(intent);
             }
         };

@@ -46,30 +46,26 @@ public class PridajStudentaActivity extends AppCompatActivity {
         slovenskyJazyk = findViewById(R.id.PridajSJ);
         fyzika = findViewById(R.id.PridajFyzika);
         informatika = findViewById(R.id.PridajInformatika);
+    }
 
-
-
+    public static String skontroluZnamku(String znamka){
+        if(Integer.parseInt(znamka) < 1 ) {return "1";}
+        else if(Integer.parseInt(znamka) > 5) {return "5";}
+        else {return znamka;}
     }
 
     private void pridajStudenta() {
         HashMap<String, String> riadok = new HashMap<String, String>();
         riadok.put("Meno", meno.getText().toString());
         riadok.put("Priezvisko", priezvisko.getText().toString());
-        //use short if to check if the string is empty if yes put "Ešte nič"
-        riadok.put("Matematika", matematika.getText().toString().isEmpty() ? "Ešte nič" : matematika.getText().toString());
-        riadok.put("Slovenský jazyk", slovenskyJazyk.getText().toString().isEmpty() ? "Ešte nič" : slovenskyJazyk.getText().toString());
-        riadok.put("Fyzika", fyzika.getText().toString().isEmpty() ? "Ešte nič" : fyzika.getText().toString());
-        riadok.put("Informatika", informatika.getText().toString().isEmpty() ? "Ešte nič" : informatika.getText().toString());
-
-        /*riadok.put("Matematika", matematika.getText().toString());
-        riadok.put("Slovenský jazyk", slovenskyJazyk.getText().toString());
-        riadok.put("Fyzika", fyzika.getText().toString());
-        riadok.put("Informatika", informatika.getText().toString());*/
+        riadok.put("Matematika", matematika.getText().toString().isEmpty() ? "Ešte nič" : skontroluZnamku(matematika.getText().toString()));
+        riadok.put("Slovenský jazyk", slovenskyJazyk.getText().toString().isEmpty() ? "Ešte nič" : skontroluZnamku(slovenskyJazyk.getText().toString()));
+        riadok.put("Fyzika", fyzika.getText().toString().isEmpty() ? "Ešte nič" : skontroluZnamku(fyzika.getText().toString()));
+        riadok.put("Informatika", informatika.getText().toString().isEmpty() ? "Ešte nič" : skontroluZnamku(informatika.getText().toString()));
 
         MainActivity.zoznam.add(riadok);
         finish();
-        System.out.println(MainActivity.zoznam);
+        //System.out.println(MainActivity.zoznam);
 
     }
-
 }
