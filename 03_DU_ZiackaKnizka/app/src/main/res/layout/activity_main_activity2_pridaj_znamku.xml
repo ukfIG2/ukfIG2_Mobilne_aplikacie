@@ -42,7 +42,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Napíš novú známku"
-            android:inputType="text" />
+            android:inputType="number" />
 
     </LinearLayout>
 

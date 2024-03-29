@@ -62,7 +62,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Zadaj novú známku"
-            android:inputType="text" />
+            android:inputType="number" />
     </LinearLayout>
 
     <Button
