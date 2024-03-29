@@ -21,6 +21,7 @@ public class Znamka extends AppCompatActivity {
     private Intent intent;
     private Button update;
     private Button naspat;
+    private Button pridajZnamku;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,10 @@ public class Znamka extends AppCompatActivity {
             if(e.get("Meno").equals(intent.getStringExtra("meno")) && e.get("Priezvisko").equals(intent.getStringExtra("priezvisko"))){
                 e.forEach((k, v) -> {
                     if(k.equals(intent.getStringExtra("nazov"))){
+                        //put shor if if empty "Zatedy ništ" else put value
+                        if(v.equals("")){
+                            staraZnamka.setText("Zatedy ništ");
+                        }else
                         staraZnamka.setText(v);
                     }
                 });
@@ -57,10 +62,13 @@ public class Znamka extends AppCompatActivity {
         naspat = findViewById(R.id.znamka_Finish);
         naspat.setOnClickListener(e -> finish());
 
-        System.out.println("nazov: " + intent.getStringExtra("nazov"));
+        pridajZnamku = findViewById(R.id.ZnamkaPridajYnamku);
+        pridajZnamku.setOnClickListener(e -> pridajZnamku());
+
+        /*System.out.println("nazov: " + intent.getStringExtra("nazov"));
         System.out.println("hodnota: " + intent.getStringExtra("hodnota"));
         System.out.println("meno: " + intent.getStringExtra("meno"));
-        System.out.println("priezvisko: " + intent.getStringExtra("priezvisko"));
+        System.out.println("priezvisko: " + intent.getStringExtra("priezvisko"));*/
     }
 
     private void update() {
@@ -88,5 +96,24 @@ public class Znamka extends AppCompatActivity {
         System.out.println("onResume");
     }*/
 
+    private void pridajZnamku() {
+        //go to AraayList zoznam, then then in hashmap find the right student by meno priezvisko check the predmet and then update the value
+        MainActivity.zoznam.forEach(e -> {
+            System.out.println(MainActivity.zoznam);
+            if(e.get("Meno").equals(intent.getStringExtra("meno")) && e.get("Priezvisko").equals(intent.getStringExtra("priezvisko"))){
+                e.forEach((k, v) -> {
+                    if(k.equals(intent.getStringExtra("nazov"))){
+                        System.out.println("k: " + k);
+                        ///e.put(k, staraZnamka.getText().toString() + "," + novaZnamka.getText().toString());
+                        //put short if if staraZnamka is "Zatedz ništ" alebo "Ešte nič" then put only novaZnamka else put staraZnamka + novaZnamka
+                        e.put(k, staraZnamka.getText().toString().equals("Zatedy ništ") || staraZnamka.getText().toString().equals("Ešte nič") ? novaZnamka.getText().toString() : staraZnamka.getText().toString() + "," + novaZnamka.getText().toString());
+                    }
+                });
+            }
+        });
+        System.out.println(MainActivity.zoznam);
+        setResult(RESULT_OK);
+        finish();
+    }
 
 }

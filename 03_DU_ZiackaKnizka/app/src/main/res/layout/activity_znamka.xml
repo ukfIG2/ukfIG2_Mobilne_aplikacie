@@ -64,9 +64,29 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Nova známka"
-            android:inputType="number"
+            android:inputType="text"
             android:textSize="16sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pridaj známku pridá jednu známku za druhú"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/ZnamkaPridajYnamku"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pridaj známku" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aktualizuj známku prepíše celý riadok"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/znamkaUpdate"

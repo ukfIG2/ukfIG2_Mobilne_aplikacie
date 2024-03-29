@@ -73,11 +73,18 @@ public class Ziak2 extends AppCompatActivity {
                 //System.out.println("Slovenský jazyk: " + e.get("Slovenský jazyk"));
                 //System.out.println("Fyzika: " + e.get("Fyzika"));
                 //System.out.println("Informatika: " + e.get("Informatika"));
-                Matematika = e.get("Matematika");
+
+                /*Matematika = e.get("Matematika");
                 System.out.println("Matematika: " + Matematika);
                 SlovenskyJazyk = e.get("Slovenský jazyk");
                 Fyzika = e.get("Fyzika");
-                Informatika = e.get("Informatika");
+                Informatika = e.get("Informatika");*/
+                //put shor if if empty "Zatedy ništ"
+                Matematika = e.get("Matematika").isEmpty() ? "Zatiaľ nič" : e.get("Matematika");
+                SlovenskyJazyk = e.get("Slovenský jazyk").isEmpty() ? "Zatiaľ nič" : e.get("Slovenský jazyk");
+                Fyzika = e.get("Fyzika").isEmpty() ? "Zatiaľ nič" : e.get("Fyzika");
+                Informatika = e.get("Informatika").isEmpty() ? "Zatiaľ nič" : e.get("Informatika");
+
 
             }
         });
@@ -93,6 +100,13 @@ public class Ziak2 extends AppCompatActivity {
 
     private void pridajAdapter(){
         zoznam = new ArrayList<String>();
+        //put shor if if empty "Zatedy ništ"
+        /*zoznam.add("Matematika: " + (Matematika.isEmpty() ? "Zatiaľ nič" : Matematika));
+        zoznam.add("Slovenský jazyk: " + (SlovenskyJazyk.isEmpty() ? "Zatiaľ nič" : SlovenskyJazyk));
+        zoznam.add("Fyzika: " + (Fyzika.isEmpty() ? "Zatiaľ nič" : Fyzika));
+        zoznam.add("Informatika: " + (Informatika.isEmpty() ? "Zatiaľ nič" : Informatika));*/
+
+
         zoznam.add("Matematika: " + Matematika);
         zoznam.add("Slovenský jazyk: " + SlovenskyJazyk);
         zoznam.add("Fyzika: " + Fyzika);
