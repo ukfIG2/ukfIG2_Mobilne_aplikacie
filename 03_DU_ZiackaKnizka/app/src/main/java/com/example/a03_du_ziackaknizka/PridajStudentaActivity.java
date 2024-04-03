@@ -14,14 +14,14 @@ import java.util.HashMap;
 
 public class PridajStudentaActivity extends AppCompatActivity {
 
-    Button naspak;
-    Button pridaj;
-    EditText meno;
-    EditText priezvisko;
-    EditText matematika;
-    EditText slovenskyJazyk;
-    EditText fyzika;
-    EditText informatika;
+    private Button naspak;
+    private Button pridaj;
+    private EditText meno;
+    private EditText priezvisko;
+    private EditText matematika;
+    private EditText slovenskyJazyk;
+    private EditText fyzika;
+    private EditText informatika;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

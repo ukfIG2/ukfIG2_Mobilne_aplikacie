@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         riadok.put("Fyzika", "");
         riadok.put("Informatika", "");
         zoznam.add(riadok);
-
     }
 
     private void PripojAdapter() {
@@ -151,34 +150,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-//*****************Načo bolo toto????????????
-   /* protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case 1:
-                if (resultCode == RESULT_OK) {
-                    String meno = data.getStringExtra("meno");
-                    String priezvisko = data.getStringExtra("priezvisko");
-                    String matematika = data.getStringExtra("matematika");
-                    String slovensky_jazyk = data.getStringExtra("slovensky_jazyk");
-                    String fyzika = data.getStringExtra("fyzika");
-                    String informatika = data.getStringExtra("informatika");
-
-                    HashMap<String, String> riadok = new HashMap<String, String>();
-                    riadok.put("Meno", meno);
-                    riadok.put("Priezvisko", priezvisko);
-                    riadok.put("Matematika", matematika);
-                    riadok.put("Slovenský jazyk", slovensky_jazyk);
-                    riadok.put("Fyzika", fyzika);
-                    riadok.put("Informatika", informatika);
-                    zoznam.add(riadok);
-
-                    PripojAdapter();
-                    PridajListener();
-                    break;
-                }
-        }
-    }*/
 
     @Override
     protected void onRestart() {

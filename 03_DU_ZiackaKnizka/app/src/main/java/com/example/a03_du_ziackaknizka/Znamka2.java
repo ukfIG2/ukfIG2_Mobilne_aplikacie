@@ -15,17 +15,18 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class Znamka2 extends AppCompatActivity {
 
-    TextView Meno;
-    TextView Predmet;
-    TextView staraZnamka;
-    EditText novaZnamka;
-    Button update;
-    Button naspat;
-    Button vymazat;
-    Intent intent;
+    private TextView Meno;
+    private TextView Predmet;
+    private TextView staraZnamka;
+    private EditText novaZnamka;
+    private Button update;
+    private Button naspat;
+    private Button vymazat;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +94,7 @@ public class Znamka2 extends AppCompatActivity {
     private void delete(){
         String staraZnamka = intent.getStringExtra("hodnota");
         MainActivity.zoznam.forEach(e -> {
-            if(e.get("Meno").equals(intent.getStringExtra("meno")) && e.get("Priezvisko").equals(intent.getStringExtra("priezvisko"))){
+            if(Objects.equals(e.get("Meno"), intent.getStringExtra("meno")) && e.get("Priezvisko").equals(intent.getStringExtra("priezvisko"))){
                 e.forEach((k, v) -> {
                     if(k.equals(intent.getStringExtra("nazov"))){
                         String hodnota = v.toString();

@@ -23,11 +23,11 @@ import java.util.Objects;
 
 public class ZoznamZnamok extends AppCompatActivity {
 
-    Toolbar toolbar;
-    ListView zoznamZnamok;
-    Intent intent;
-    ArrayList<String> listZnamok;
-    Button naspat;
+    private Toolbar toolbar;
+    private ListView zoznamZnamok;
+    private Intent intent;
+    private ArrayList<String> listZnamok;
+    private Button naspat;
 
 
     @Override

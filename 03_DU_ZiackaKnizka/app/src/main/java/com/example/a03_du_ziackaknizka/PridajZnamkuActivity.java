@@ -15,12 +15,12 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Objects;
 
 public class PridajZnamkuActivity extends AppCompatActivity {
-    TextView meno;
-    TextView predmet;
-    EditText znamka;
-    Button pridaj;
-    Button spat;
-    Intent intent;
+    private TextView meno;
+    private TextView predmet;
+    private EditText znamka;
+    private Button pridaj;
+    private Button spat;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

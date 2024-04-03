@@ -21,14 +21,13 @@ import java.util.ArrayList;
 public class Ziak2 extends AppCompatActivity {
 
     private Intent intent;
-    //Toolbar toolbar;
     private TextView toolbar;
     private ArrayList<String> zoznam;
     private Button button;
-    String Matematika;
-    String SlovenskyJazyk;
-    String Fyzika;
-    String Informatika;
+    private String Matematika;
+    private  String SlovenskyJazyk;
+    private String Fyzika;
+    private String Informatika;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
