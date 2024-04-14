@@ -17,7 +17,7 @@ public class EditPredmet extends AppCompatActivity {
     private Button naspak;
     private Button uprav;
     private Intent intent;
-    Databaza databaza = new Databaza(this);
+    private Databaza databaza = new Databaza(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

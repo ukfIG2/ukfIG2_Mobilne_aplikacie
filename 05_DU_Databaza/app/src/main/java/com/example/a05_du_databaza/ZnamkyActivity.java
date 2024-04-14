@@ -27,7 +27,6 @@ public class ZnamkyActivity extends AppCompatActivity {
     private Button koniec;
     private Intent intent;
     private Toolbar tb;
-
     private long idStudent;
     private long idPredmet;
 
@@ -72,7 +71,7 @@ public class ZnamkyActivity extends AppCompatActivity {
     }
 
     private void pripojAdapter(){
-        //lets pprint what getZnamky gets us
+
         /*Cursor cursor = dbh.getZnamky(idStudent, idPredmet);
         if(cursor.moveToFirst()){
             do{
@@ -81,8 +80,6 @@ public class ZnamkyActivity extends AppCompatActivity {
                 System.out.println("Nieco");
             }while(cursor.moveToNext());
         }System.out.println("Koniec");*/
-
-
 
        myAdapter = new SimpleCursorAdapter(this,
                R.layout.list_layout_znamky,

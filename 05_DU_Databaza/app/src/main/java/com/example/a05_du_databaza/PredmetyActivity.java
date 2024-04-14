@@ -21,13 +21,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PredmetyActivity extends AppCompatActivity {
 
-    Databaza dbh = new Databaza(this);
-    SimpleCursorAdapter myAdapter;
-    Intent intent;
-
-    Button edite;
-    Button Koniec;
-
+    private Databaza dbh = new Databaza(this);
+    private SimpleCursorAdapter myAdapter;
+    private Intent intent;
+    private Button edite;
+    private Button Koniec;
     private Toolbar toolbar;
 
     @Override
@@ -84,52 +82,6 @@ public class PredmetyActivity extends AppCompatActivity {
         lv.setAdapter(myAdapter);
     }
 
-   /* private void pripojListener(){
-        ListView lv = (ListView) findViewById(R.id.predmety_listView);
-        lv.setOnItemClickListener((parent, view, position, id) -> {
-            Cursor cursor = (Cursor) parent.getItemAtPosition(position);
-
-            /*if (cursor.moveToFirst()) {
-                do {
-                    for (int i = 0; i < cursor.getColumnCount(); i++) {
-                        String columnName = cursor.getColumnName(i);
-                        String columnValue = cursor.getString(i);
-                        System.out.println("Totok " + columnName + ": " + columnValue);
-                    }
-                } while (cursor.moveToNext());
-            }*/
-
-      /*      @SuppressLint("Range") String idPredmet = cursor.getString(cursor.getColumnIndex("_id"));
-            int idStudent = getIntent().getIntExtra("idStudent", -1);
-
-            Intent intentZnamky = new Intent(this, ZnamkyActivity.class);
-            intentZnamky.putExtra("idPredmet", idPredmet);
-            intentZnamky.putExtra("idUser", getIntent().getLongExtra("idUser", -1));
-            startActivity(intentZnamky);
-        });
-    }*/
-
-   /* private void pripojListener(){
-        ListView lv = (ListView) findViewById(R.id.predmety_listView);
-        lv.setOnItemClickListener((parent, view, position, id) -> {
-            Cursor cursor = (Cursor) parent.getItemAtPosition(position);
-
-            int columnIndex = cursor.getColumnIndex("_id");
-            if (columnIndex != -1) {
-                String idPredmet = cursor.getString(columnIndex);
-                Log.d("MyApp", "idPredmet: " + idPredmet);
-                int idStudent = getIntent().getIntExtra("idStudent", -1);
-
-                Intent intentZnamky = new Intent(this, ZnamkyActivity.class);
-                intentZnamky.putExtra("idPredmet", idPredmet);
-                intentZnamky.putExtra("idStudent", idStudent);
-                startActivity(intentZnamky);
-            } else {
-                System.out.println("MyApp" + "Column " + Predmet.COLUMN_ID + " does not exist in the Cursor");
-            }
-        });
-    }*/
-
     private void pripojListener(){
         ListView lv = (ListView) findViewById(R.id.predmety_listView);
         lv.setOnItemClickListener((parent, view, position, id) -> {
@@ -158,26 +110,6 @@ public class PredmetyActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*private void pridajDlhyListener(){
-        ListView lv = (ListView) findViewById(R.id.predmety_listView);
-        lv.setOnItemLongClickListener((parent, view, position, id) -> {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Vymazanie predmetu,")
-                    .setMessage("Naozaj chcete vymazať tento predmet?")
-                    .setPositiveButton("Áno", (dialog, which) -> {
-                        dbh.deletePredmet(id);
-                        pripojAdapter();
-                        Toast.makeText(this, "Predmet bol vymazaný", Toast.LENGTH_SHORT).show();
-                    })
-                    .setNegativeButton("Nie", (dialog, which) -> {
-                        dialog.dismiss();
-                        Toast.makeText(this, "Vymazanie nebolo vykonané", Toast.LENGTH_SHORT).show();
-                        })
-                        .show();
-            return true;
-        });
-    }*/
     private void pridajDlhyListener(){
         ListView lv = (ListView) findViewById(R.id.predmety_listView);
         lv.setOnItemLongClickListener((parent, view, position, id) -> {

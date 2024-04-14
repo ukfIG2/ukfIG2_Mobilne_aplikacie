@@ -20,10 +20,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Databaza dbh = new Databaza(this);
+    private Databaza dbh = new Databaza(this);
 
-    SimpleCursorAdapter myAdapter;
-
+    private SimpleCursorAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +40,8 @@ public class MainActivity extends AppCompatActivity {
         pridejListener();
         pridajDlhyListener();
 
-        //vlozStudenta();
-        //vlozPredmet();
-        //vlozZnamku();
-
         Toolbar tb = findViewById(R.id.main_toolbar);
         setSupportActionBar(tb);
-
-
     }
 
     private void pripojAdapter(){
@@ -63,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.main_listView);
         lv.setAdapter(myAdapter);
     }
-
-
 
     private void pridejListener(){
         ListView lv = (ListView) findViewById(R.id.main_listView);

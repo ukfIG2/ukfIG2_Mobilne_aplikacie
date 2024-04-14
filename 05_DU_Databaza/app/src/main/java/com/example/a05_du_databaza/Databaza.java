@@ -1,5 +1,6 @@
 package com.example.a05_du_databaza;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -40,7 +41,7 @@ public class Databaza extends SQLiteOpenHelper {
                 + Znamka.COLUMN_ZNAMKA + " INTEGER, "
                 + "FOREIGN KEY(" + Znamka.COLUMN_PREDMET + ") REFERENCES " + Predmet.TABLE_NAME + "(" + Predmet.COLUMN_ID + "), "
                 + "FOREIGN KEY(" + Znamka.COLUMN_STUDENT + ") REFERENCES " + Student.TABLE_NAME + "(" + Student.COLUMN_ID + "))";
-        System.out.println(SQL_CREATE_TABLE_ZNAMKA);
+        //System.out.println(SQL_CREATE_TABLE_ZNAMKA);
         db.execSQL(SQL_CREATE_TABLE_ZNAMKA);
     }
 
@@ -54,51 +55,10 @@ public class Databaza extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Znamka getZnamka(long ID) {
-        SQLiteDatabase db = getWritableDatabase();
-        String[] projection = {Znamka.COLUMN_PREDMET, Znamka.COLUMN_STUDENT, Znamka.COLUMN_ZNAMKA};
-        String selection = Znamka.COLUMN_ID;
-        String[] selectionArgs = {"" + ID};
-
-        Cursor c = db.query(
-                Znamka.TABLE_NAME,
-                projection,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                null);
-
-        if (c != null && c.moveToFirst()) {
-            int predmetIndex = c.getColumnIndex(Znamka.COLUMN_PREDMET);
-            int studentIndex = c.getColumnIndex(Znamka.COLUMN_STUDENT);
-            int znamkaIndex = c.getColumnIndex(Znamka.COLUMN_ZNAMKA);
-
-            if (predmetIndex != -1 && studentIndex != -1 && znamkaIndex != -1) {
-                Znamka z = new Znamka(
-                        c.getInt(predmetIndex),
-                        c.getInt(studentIndex),
-                        c.getInt(znamkaIndex));
-
-                c.close();
-                db.close();
-                return z;
-            }
-        }
-        if (c != null) {
-            c.close();
-        }
-        db.close();
-        return null;
-    }
-
-
-
     public void updateZnamka(long id, String znakma) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Znamka.COLUMN_ZNAMKA, Integer.parseInt(znakma));
-        System.out.println("ID: " + id + " Znamka: " + znakma);
         db.update(
                 Znamka.TABLE_NAME,
                 values,
@@ -173,21 +133,15 @@ public class Databaza extends SQLiteOpenHelper {
         return c;
     }
 
-
-
     public Cursor getSelectZnamka(long idZnamka) {
-        System.out.println("getSelectZnamka " + idZnamka);
         SQLiteDatabase db = getReadableDatabase();
         String[] projection = {Znamka.COLUMN_PREDMET, Znamka.COLUMN_STUDENT, Znamka.COLUMN_ZNAMKA};
         String selection = Znamka.COLUMN_ID + " = ?";
         String[] selectionArgs = {String.valueOf(idZnamka)};
-        System.out.println(selectionArgs[0]);
 
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
         builder.setTables(Znamka.TABLE_NAME);
         String query = builder.buildQuery(projection, selection, selectionArgs, null, null, null, null);
-
-        System.out.println("Query: " + query);
 
         Cursor cursor = db.query(
                 Znamka.TABLE_NAME,
@@ -222,7 +176,7 @@ public class Databaza extends SQLiteOpenHelper {
                 null
         );
         if (cursor != null && cursor.moveToFirst()) {
-            String name = cursor.getString(cursor.getColumnIndex(Student.COLUMN_NAME));
+            @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(Student.COLUMN_NAME));
             cursor.close();
             return name;
         }
@@ -241,7 +195,7 @@ public class Databaza extends SQLiteOpenHelper {
                 null
         );
         if (cursor != null && cursor.moveToFirst()) {
-            String surname = cursor.getString(cursor.getColumnIndex(Student.COLUMN_SURNAME));
+            @SuppressLint("Range") String surname = cursor.getString(cursor.getColumnIndex(Student.COLUMN_SURNAME));
             cursor.close();
             return surname;
         }
@@ -260,13 +214,13 @@ public class Databaza extends SQLiteOpenHelper {
                 null
         );
         if (cursor != null && cursor.moveToFirst()) {
-            String name = cursor.getString(cursor.getColumnIndex(Predmet.COLUMN_NAME));
+            @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(Predmet.COLUMN_NAME));
             cursor.close();
             return name;
         }
         return null;
     }
-    /////////////////////////////////////////////////////
+
     public void addStudent(Student s) {
         SQLiteDatabase db = getWritableDatabase();
         //Ciste sql
@@ -350,7 +304,6 @@ public class Databaza extends SQLiteOpenHelper {
                 Student.COLUMN_ID + " = ?",
                 new String[]{"" + s.getId()});
         db.close();
-        System.out.println("Konecna");
     }
 
     public void addPredmet(Predmet p) {
@@ -361,7 +314,6 @@ public class Databaza extends SQLiteOpenHelper {
                 null,
                 values);
         db.close();
-
     }
 
     public void deletePredmet(long ID) {
@@ -416,7 +368,6 @@ public class Databaza extends SQLiteOpenHelper {
                 Predmet.COLUMN_ID + " = ?",
                 new String[]{"" + p.getId()});
         db.close();
-        System.out.println("Konecna");
     }
 
     public void addZnamka(Znamka z) {
@@ -427,8 +378,6 @@ public class Databaza extends SQLiteOpenHelper {
         values.put(Znamka.COLUMN_ZNAMKA, z.getZnamka());
         db.insert(Znamka.TABLE_NAME, null, values);
         db.close();
-        System.out.println("Pridaj databaza");
-        System.out.println("Predmet: " + z.getPredmet() + " Student: " + z.getStudent() + " Znamka: " + z.getZnamka());
 
     }
 
@@ -440,11 +389,5 @@ public class Databaza extends SQLiteOpenHelper {
                 new String[]{"" + ID});
         db.close();
     }
-
-
-    ////////////////////////////////////////////////////////////
-
-
-
 
 }

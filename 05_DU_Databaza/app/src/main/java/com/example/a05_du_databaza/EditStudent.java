@@ -20,7 +20,7 @@ public class EditStudent extends AppCompatActivity {
     private Button edit;
     private Button exit;
     private long id;
-    Databaza dbh = new Databaza(this);
+    private Databaza dbh = new Databaza(this);
 
 
     @Override

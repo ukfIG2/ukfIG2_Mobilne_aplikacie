@@ -12,12 +12,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PridajStudenta extends AppCompatActivity {
 
-    EditText meno;
-    EditText priezvisko;
-    Button pridaj;
-    Button naspak;
+    private EditText meno;
+    private EditText priezvisko;
+    private Button pridaj;
+    private Button naspak;
 
-    Databaza dbh = new Databaza(this);
+    private Databaza dbh = new Databaza(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
