@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         dbh = new Databaza(this);
 
-        // Check if it's the first run
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         if (settings.getBoolean(FIRST_RUN, true)) {
             dummyData();
@@ -120,10 +119,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void dummyData(){
-        //I want to create 5 students 3 subject and 4 grades for each subject each student
         int studentov = 5;
         int predmetov = 3;
-        int znamok = 3;//for each subject each student
+        int znamok = 3;
         for (int i = 0; i < studentov; i++) {
             dbh.addStudent(new Student("Meno_" + i, "Priezvisko_" + i));
         }
@@ -133,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < studentov; i++) {
             for (int j = 0; j < predmetov; j++) {
                 for (int k = 0; k < znamok; k++) {
-                    dbh.addZnamka(new Znamka(j + 1, i + 1, (k + 1) * 2));
+                    dbh.addZnamka(new Znamka(j + 1, i + 1, (k + 1) ));
                 }
             }
         }
