@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void stiahniData() {
         // adresa stránky, ktorú chceme získať
-        String myUrl = "https://www.studujvedu.sk/android/vypis.php"; // "https://.../android/output.php";
+        String myUrl = "http://10.0.2.2/BackEnd/vypis.php"; // "https://.../android/output.php";
         // Vytvorenie inštancie pre download
         Komunikator downl = new Komunikator();
         // zavolanie metódy na spustenie AsyncTask-u
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void odosliData() {
-        String myUrl = "https://www.studujvedu.sk/android/zapis.php";
+        String myUrl = "http://10.0.2.2/BackEnd/zapis.php";
         String _name = ((EditText) (findViewById(R.id.editName))).getText().toString();
         String _surname = ((EditText) (findViewById(R.id.editSurname))).getText().toString();
         String _ttime = ((EditText) (findViewById(R.id.editTime))).getText().toString();
