@@ -17,45 +17,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c9127f4-1af0-4075-97c9-4271c8eb41e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/androidTest/java/com/example/a06_du_xamp_2/ExampleInstrumentedTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/java/com/example/a06_du_xamp_2/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/values-night/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/app/src/test/java/com/example/a06_du_xamp_2/ExampleUnitTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/gradle/libs.versions.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../06_DU_XAMP_2/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../0602_ServerCommunication/app/src/main/java/com/example/a0602_servercommunication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../0602_ServerCommunication/app/src/main/java/com/example/a0602_servercommunication/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../06_04_DU_XAMP/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../06_04_DU_XAMP/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,9 +43,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2fy8Lg1JPA0dzzqj77iZ4XsRkfg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -94,9 +56,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "dalej",
+    "git-widget-placeholder": "skuska",
+    "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
@@ -164,9 +128,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
+      <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
