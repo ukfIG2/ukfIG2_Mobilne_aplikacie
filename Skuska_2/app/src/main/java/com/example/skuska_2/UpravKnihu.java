@@ -1,4 +1,4 @@
-package com.example.skuska_1;
+package com.example.skuska_2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class UpravKnihu extends AppCompatActivity {
 
-   private EditText nazov;
+    private EditText nazov;
     private EditText autor;
     private EditText rok;
     private Spinner zaner;

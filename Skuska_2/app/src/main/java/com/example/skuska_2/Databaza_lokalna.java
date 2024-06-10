@@ -1,4 +1,4 @@
-package com.example.skuska_1;
+package com.example.skuska_2;
 
 import android.content.ContentValues;
 import android.content.Context;

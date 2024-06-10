@@ -1,4 +1,4 @@
-package com.example.skuska_1;
+package com.example.skuska_2;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -17,8 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
@@ -56,14 +54,18 @@ public class MainActivity extends AppCompatActivity {
        /* Button importButton = findViewById(R.id.main_import);
         importButton.setOnClickListener(v -> importujDatabazu());*/
 
-        Toolbar tb = findViewById(R.id.main_tool);
+        Button exportButton = findViewById(R.id.main_export);
+        exportButton.setOnClickListener(v -> new PostJSONTask(dl).execute("http://10.0.2.2/MobilneAplikacie_SKUSKA/importToXamp.php"));        Toolbar tb = findViewById(R.id.main_tool);
         setSupportActionBar(tb);
         //pridajZaner();
 
         pripojAdapter();
         pridajListener();
         pridajDlhyListener();
-    }
+
+        for (zaner z : dl.getAllZaner()) {
+            System.out.println(z.toString2());
+        }    }
 
     ;
 
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void pridajZaner() {
         Databaza_lokalna db = new Databaza_lokalna(this);
-        zaner zanerRomantika = new zaner("lebo");
+        zaner zanerRomantika = new zaner("fantazia");
         db.addZaner(zanerRomantika);
     }
 
@@ -138,9 +140,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
- class PostJSONTask extends AsyncTask<String, Void, Void> {
+class PostJSONTask extends AsyncTask<String, Void, Void> {
 
     private Databaza_lokalna dl;
+
+    public PostJSONTask(Databaza_lokalna dl) {
+        this.dl = dl;
+
+
+    }
     @Override
     protected Void doInBackground(String... strings) {
         try {
@@ -181,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
             os.close();
 
             conn.connect();
+            System.out.println("Response code: " + conn.getResponseCode());
 
             int responseCode = conn.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
